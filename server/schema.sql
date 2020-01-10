@@ -21,7 +21,7 @@ CREATE TABLE messages (
   message VARCHAR (150) NOT NULL,
   user_id INT NOT NULL,
   room_id INT NOT NULL,
-  created_at DATETIME,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
   FOREIGN KEY (user_id) REFERENCES users (id),
   FOREIGN KEY (room_id) REFERENCES rooms (id)
