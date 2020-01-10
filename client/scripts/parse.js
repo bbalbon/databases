@@ -9,7 +9,7 @@ var Parse = {
   create: function(message, successCB, errorCB = null) {
 
     $.ajax({
-      url: Parse.server,
+      url: Parse.server + 'messages',
       type: 'POST',
       data: JSON.stringify(message),
       contentType: 'application/json',
@@ -22,7 +22,7 @@ var Parse = {
 
   readAll: function(successCB, errorCB = null) {
     $.ajax({
-      url: Parse.server + 'messages',
+      url: Parse.server + 'users',
       type: 'GET',
       // data: 'messages',
       contentType: 'application/json',

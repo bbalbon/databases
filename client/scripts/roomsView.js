@@ -36,6 +36,6 @@ var RoomsView = {
         MessagesView.render();
       });
     }
-      }
+  }
 
 };

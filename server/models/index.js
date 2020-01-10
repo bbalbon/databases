@@ -8,18 +8,20 @@ module.exports = {
           return callback(data);
         });
     }, // a function which produces all the messages
-    post: function () {} // a function which can be used to insert a message into the database
+    post: function (query, callback) {
+      return db.query(query)
+        .then(() => {
+          callback();
+        });
+    } // a function which can be used to insert a message into the database
   },
 
   users: {
     // Ditto as above.
-    get: function (query) {
-      return db.connect()
-        .then(() => {
-          return db.query(query);
-        })
+    get: function (query, callback) {
+      return db.query(query)
         .then((data) => {
-          console.log(data);
+          return callback(data);
         });
     },
     post: function () {}
