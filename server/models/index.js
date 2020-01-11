@@ -8,13 +8,18 @@ module.exports = {
           return callback(data);
         });
     }, // a function which produces all the messages
-    post: function (query, callback) {
+    post: function (message, callback) {
+      return db.query();
       return db.query(query)
         .then(() => {
           callback();
         });
     } // a function which can be used to insert a message into the database
   },
+
+  // Format of incoming messages
+  // { username: 'Roger', text: 'asdf', roomname: 'lobby' }
+
 
   users: {
     // Ditto as above.

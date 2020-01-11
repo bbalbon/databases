@@ -22,7 +22,7 @@ var Parse = {
 
   readAll: function(successCB, errorCB = null) {
     $.ajax({
-      url: Parse.server + 'users',
+      url: Parse.server + 'messages',
       type: 'GET',
       // data: 'messages',
       contentType: 'application/json',

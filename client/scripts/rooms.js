@@ -26,8 +26,12 @@ var Rooms = {
     _.chain(messages)
       .pluck('roomname')
       .uniq()
-      .each(room => Rooms._data.add(room));
+      .each(room => {
+        Rooms._data.add(room);
+        // console.log('indiv room', room);
+      });
 
+    // console.log('Rooms data', Rooms._data);
     if (Rooms.selected === null) {
       // make the first room the default selected room
       Rooms.selected = Rooms._data.values().next().value;
@@ -38,5 +42,5 @@ var Rooms = {
       callback(Rooms.items());
     }
   }
-  
+
 };

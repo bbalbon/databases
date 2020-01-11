@@ -4,14 +4,21 @@ module.exports = {
   messages: {
     // a function which handles a get request for all messages
     get: function (req, res) {
-      models.messages.get('SELECT * FROM messages', (data) => {
-        res.write(JSON.stringify(data));
+      models.messages.get('select messages.text, users.username, rooms.roomname from messages inner join users on (users.id = messages.user) inner join rooms on (rooms.id = messages.room);', (data) => {
+        counter = 0;
+        data.forEach(item => {
+          item.objectId = counter;
+          counter ++;
+        });
+        let toSend = {
+          results: data
+        };
+        res.write(JSON.stringify(toSend));
         res.end();
       });
     },
     post: function (req, res) {
-      let message = req.body.message;
-      models.messages.post('INSERT INTO messages VALUES ', () => {
+      models.messages.post(req.body, () => {
         res.end();
       });
       // a function which handles posting a message to the database
@@ -41,7 +48,7 @@ module.exports = {
 
 // {
 //   results: [{
-//     objectId: "HgJwquxJIF"
+//       objectId: "HgJwquxJIF"
 //       username: "asdf1"
 //       roomname: "America"
 //       text: "Iran"
