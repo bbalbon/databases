@@ -13,7 +13,7 @@ var MessagesView = {
     // console.log(Messages._data);
     Messages
       .items()
-      // .filter(message => Rooms.isSelected(message.roomname))
+      .filter(message => Rooms.isSelected(message.roomname))
       .each(message => {
         MessagesView.renderMessage(message);
       });
@@ -21,7 +21,7 @@ var MessagesView = {
 
   renderMessage: function(message) {
     var $message = MessageView.render(message);
-    console.log(message);
+    // console.log(message);
     MessagesView.$chats.prepend($message);
   },
 

@@ -17,7 +17,7 @@ module.exports.query = (query, callback) => {
       if (error) {
         reject(error);
       } else {
-        resolve(results);
+        results.length === 0 ? reject(error) : resolve(results);
       }
     });
   });
