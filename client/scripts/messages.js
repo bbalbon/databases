@@ -29,7 +29,6 @@ var Messages = {
     message.text = message.text || '';
     message.username = message.username || '';
     message.roomname = message.roomname || '';
-    // console.log('MESSAGE', message);
     return message;
   }
 

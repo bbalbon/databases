@@ -3,7 +3,7 @@ var Rooms = {
 
   _data: new Set,
 
-  selected: 'lobby',
+  selected: 'Lobby',
 
   items: function() {
     return _.chain([...Rooms._data]);
@@ -28,10 +28,8 @@ var Rooms = {
       .uniq()
       .each(room => {
         Rooms._data.add(room);
-        // console.log('indiv room', room);
       });
 
-    // console.log('Rooms data', Rooms._data);
     if (Rooms.selected === null) {
       // make the first room the default selected room
       Rooms.selected = Rooms._data.values().next().value;

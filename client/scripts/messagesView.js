@@ -10,7 +10,6 @@ var MessagesView = {
   render: function() {
 
     MessagesView.$chats.html('');
-    // console.log(Messages._data);
     Messages
       .items()
       .filter(message => Rooms.isSelected(message.roomname))
@@ -21,7 +20,6 @@ var MessagesView = {
 
   renderMessage: function(message) {
     var $message = MessageView.render(message);
-    // console.log(message);
     MessagesView.$chats.prepend($message);
   },
 
