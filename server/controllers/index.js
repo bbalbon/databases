@@ -33,7 +33,6 @@ module.exports = {
       });
     },
     post: function (req, res) {
-      // send user to INSERT USERS (req.user);
       models.users.post(req.body, () => {
         res.end();
       });
