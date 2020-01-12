@@ -22,5 +22,3 @@ module.exports.query = (query, callback) => {
     });
   });
 };
-
-module.exports.connection.connect();

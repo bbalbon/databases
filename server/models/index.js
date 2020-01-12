@@ -13,8 +13,6 @@ module.exports = {
       let retrieveUserId = module.exports.users.post(message.username);
       let retrieveRoomId = module.exports.rooms.post(message.roomname);
       Promise.all([retrieveUserId, retrieveRoomId]).then((values) => {
-        // console.log('user', values);
-        // console.log('room', values[1][0].id);
         return db.query(`INSERT INTO messages (text, user, room) VALUES ('${message.text}', ${values[0][0].id}, ${values[1][0].id})`)
           .then(() => {
             callback();

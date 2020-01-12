@@ -21,12 +21,6 @@ module.exports = {
       models.messages.post(req.body, () => {
         res.end();
       });
-      // a function which handles posting a message to the database
-      // format the message access req.message
-      //send them to database via insert message INSERT ROOMs (req.roomname);
-      // send message to INSERT MESSAGE (req.message);
-      //send response to client
-      //with headers, res.end()
     }
   },
 
@@ -40,6 +34,9 @@ module.exports = {
     },
     post: function (req, res) {
       // send user to INSERT USERS (req.user);
+      models.users.post(req.body, () => {
+        res.end();
+      });
     }
   }
 };
